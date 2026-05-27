@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
+
 
 public class Tp1 {
     /*
@@ -45,8 +46,6 @@ public class Tp1 {
         double r = 6371000; //Rayon de la terre en mètres. 
         double d = 2*r*Math.asin(Math.sqrt(Math.pow(Math.sin((lat2-lat1)/2),2) + Math.cos(lat1)*Math.cos(lat2)*Math.pow(Math.sin((long2-long1)/2),2)));
 
-        //System.out.println("r = " + r);
-        //System.out.println("h = " + d);
         return Math.floor(d*100)/100;
     }
 
@@ -55,10 +54,14 @@ public class Tp1 {
     public void main(String[] args) {
         try{
             BufferedReader data = new BufferedReader(new FileReader(args[0]));
-            String line;
-
+            String line = data.readLine();
+            String[] tokens = line.trim().split("\\s+");
+            int contenanceCamion = Integer.parseInt(tokens[0]);
+            int boites = Integer.parseInt(tokens[1]); 
+            //S'il n'y a rien pour le nombre de boîtes, dire qu'il y en a 0 à déplacer ?
             
-
+            System.out.println(contenanceCamion);
+            System.out.println(boites);
 
 
             data.close();
