@@ -64,11 +64,11 @@ public class Tp1 {
             BufferedReader donnees = new BufferedReader(new FileReader(args[0]));
 
             String line;
-            while((line = donnees.readLine()) != null) {System.out.println(line);}
+            
 
 
 
-
+            donnees.close();
         } catch(FileNotFoundException e) {
             System.out.println("Fichier introuvable.");
         } catch(IOException f) {
