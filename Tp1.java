@@ -53,28 +53,20 @@ public class Tp1 {
 
 
     public void main(String[] args) {
-        double[] posCamion = {45.4383,-73.8205};
-        double[] posPoint = {45.4977,-73.714};
-        double[] posPoint2 = {45.5092,-73.5682};
-
-        Double distance = DHaversine(posCamion,posPoint);
-        Double distance2 = DHaversine(posCamion,posPoint2);
-
-        System.out.println(distance2);
         try{
-            BufferedReader donnees = new BufferedReader(new FileReader(args[0]));
-
+            BufferedReader data = new BufferedReader(new FileReader(args[0]));
             String line;
+
             
 
 
 
-            donnees.close();
+            data.close();
         } catch(FileNotFoundException e) {
             System.out.println("Erreur (FileNotFoundException) : " + e.getMessage());
         } catch(IOException f) {
             System.out.println("Erreur (IOException) : " + f.getMessage());
         }
-        
+    
     }
 }
