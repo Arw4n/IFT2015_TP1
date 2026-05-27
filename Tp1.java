@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Tp1 {
@@ -56,5 +60,20 @@ public class Tp1 {
         Double distance2 = DHaversine(posCamion,posPoint2);
 
         System.out.println(distance2);
+        try{
+            BufferedReader donnees = new BufferedReader(new FileReader(args[0]));
+
+            String line;
+            while((line = donnees.readLine()) != null) {System.out.println(line);}
+
+
+
+
+        } catch(FileNotFoundException e) {
+            System.out.println("Fichier introuvable.");
+        } catch(IOException f) {
+            System.out.println("Une erreur est apparue pendant la lecture du fichier" + f.getMessage());
+        }
+        
     }
 }
