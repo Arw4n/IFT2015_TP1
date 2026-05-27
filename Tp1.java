@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Tp1 {
     /*
@@ -70,9 +71,9 @@ public class Tp1 {
 
             donnees.close();
         } catch(FileNotFoundException e) {
-            System.out.println("Fichier introuvable.");
+            System.out.println("Erreur (FileNotFoundException) : " + e.getMessage());
         } catch(IOException f) {
-            System.out.println("Une erreur est apparue pendant la lecture du fichier" + f.getMessage());
+            System.out.println("Erreur (IOException) : " + f.getMessage());
         }
         
     }
