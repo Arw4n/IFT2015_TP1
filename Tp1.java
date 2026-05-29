@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class Tp1 {
     /*
     Input : nombre total de boîtes à transporter, capacité maximale d'un camion, positions des 
@@ -56,19 +55,23 @@ public class Tp1 {
             BufferedReader data = new BufferedReader(new FileReader(args[0]));
 
             String Firstline = data.readLine();
+            String line;
             String[] tokens = Firstline.trim().split("\\s+");
-            System.out.println(Arrays.toString(tokens));
-            int contenanceCamion = Integer.parseInt(tokens[0]);
-            int boites;
+            int Truck = Integer.parseInt(tokens[0]);
+            double distance = 0;
+            double[] TruckPosition = new double[2];
+            int boxes;
+            Cargaisons[] entrepots = new Cargaisons[1];
+
             if(tokens.length<2) {
-                boites = 0;    
-            } else { boites = Integer.parseInt(tokens[1]); }
+                boxes = 0;    
+            } else { boxes = Integer.parseInt(tokens[1]); }
             //S'il n'y a rien pour le nombre de boîtes, dire qu'il y en a 0 à déplacer ?
 
-            String line;
-            
+
             while((line = data.readLine()) != null) {
-                System.out.println(line);
+                String[] infos = line.trim().split("\\s+");
+                
             }
 
 
@@ -79,5 +82,16 @@ public class Tp1 {
             System.out.println("Erreur (IOException) : " + f.getMessage());
         }
 
+    }
+}
+
+
+class Cargaisons {
+    int nbsBoites;
+    double[] coords = new double[2]; // paires (latitude, longitude)
+
+    public Cargaisons(int nbsBoites, double[] coords) {
+        nbsBoites = this.nbsBoites;
+        coords = this.coords;
     }
 }
