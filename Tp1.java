@@ -54,14 +54,22 @@ public class Tp1 {
     public void main(String[] args) {
         try{
             BufferedReader data = new BufferedReader(new FileReader(args[0]));
-            String line = data.readLine();
-            String[] tokens = line.trim().split("\\s+");
+
+            String Firstline = data.readLine();
+            String[] tokens = Firstline.trim().split("\\s+");
+            System.out.println(Arrays.toString(tokens));
             int contenanceCamion = Integer.parseInt(tokens[0]);
-            int boites = Integer.parseInt(tokens[1]); 
+            int boites;
+            if(tokens.length<2) {
+                boites = 0;    
+            } else { boites = Integer.parseInt(tokens[1]); }
             //S'il n'y a rien pour le nombre de boîtes, dire qu'il y en a 0 à déplacer ?
+
+            String line;
             
-            System.out.println(contenanceCamion);
-            System.out.println(boites);
+            while((line = data.readLine()) != null) {
+                System.out.println(line);
+            }
 
 
             data.close();
@@ -70,6 +78,6 @@ public class Tp1 {
         } catch(IOException f) {
             System.out.println("Erreur (IOException) : " + f.getMessage());
         }
-    
+
     }
 }
