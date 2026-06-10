@@ -17,4 +17,3 @@ Distance:3092.0		Number of boxes:0		Position:(45.5632,-73.619)
 Distance:3261.4		Number of boxes:0		Position:(45.5332,-73.6275)
 Distance:3386.4		Number of boxes:0		Position:(45.5224,-73.5598)
 Distance:3526.9		Number of boxes:16		Position:(45.5226,-73.6213)
-

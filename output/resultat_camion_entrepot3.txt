@@ -1,4 +1,7 @@
 Truck position: (45.4431,-73.619)
 Distance:0		Number of boxes:0		Position:(45.4431,-73.619)
-Distance:891.3		Number of boxes:14		Position:(45.4407,-73.6299)
-
+Distance:891.3		Number of boxes:0		Position:(45.4407,-73.6299)
+Distance:1215.6		Number of boxes:0		Position:(45.4386,-73.6332)
+Distance:1264.6		Number of boxes:0		Position:(45.4495,-73.6056)
+Distance:2096.6		Number of boxes:0		Position:(45.4417,-73.5922)
+Distance:2113.6		Number of boxes:47		Position:(45.456,-73.6389)
