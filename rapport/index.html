@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport IFT2015 - TP1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <p>Rapport IFT2015 - TP1</p>
+    </header>
+
+    <div class="team">
+        <u>Nom</u>:<strong> Ryan Ramaherison Mac Way Kit</strong> - <u>Matricule</u>: <strong>2030 6738</strong><br>
+        <u>Nom</u>:<strong> Ryan Ramaherison Mac Way Kit</strong> - <u>Matricule</u>: <strong>2030 6738</strong>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>1. Auto-évaluation</h2>
+            <p>
+                Notre programme <code>Tp1.java</code> fonctionne: <span class="badge">Correctement</span> 
+                contenant 3 algorithmes de tri, à savoir: 
+                <strong>Tri par Insertion</strong> (Option 1), 
+                <strong>Tri par Fusion</strong> (Option 2) et 
+                <strong>Tri par Arrays.sort()</strong> (Option 3)
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>2. Analyse de la complexité temporelle (pire cas) théorique</h2>
+            <p>
+                L'analyse asymptotique ci-dessous détaille le comportement algorithmique théorique 
+                en fonction de la taille du problème <span class="math">n</span> (nombre de bâtiments), 
+                représentant le nombre total de données à trier.
+            </p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th class="no-wrap">Algorithme de Tri</th>
+                        <th>Complexité (Pire Cas)</th>
+                        <th>Justification Théorique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tri par Insertion<br>(Insertion Sort)</strong></td>
+                        <td><code>O(n²)</code></td>
+                        <td>
+                            Algorithme qui contient 2 boucles imbriquées. La boucle externe <code>for</code> s'exécute linéairement <span class="math">n-1</span> fois,
+                            proportionnelle à <code>O(n)</code>. Et la boucle interne <code>while</code> qui s'exécute au max <span class="math">i</span> fois,
+                            proportionnelle à <code>O(i)</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tri par Fusion<br>(Merge Sort)</strong></td>
+                        <td><code>O(n log n)</code></td>
+                        <td>
+                            Algorithme de type "Diviser pour régner". Le tableau de données est divisé récursivement en 2 sous-tableaux équilibrées 
+                            jusqu'à atteindre des singletons. La profondeur maximale de cette récursion est de l'ordre de <code>log₂ n</code>. 
+                            À chaque niveau de cette récursion, la méthode de fusion linéaire <code>merge()</code> combine les sous-tableaux 
+                            triés en un seul tableau trié, proportionnel à <code>O(n)</code>. 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tri par Arrays.sort()</strong></td>
+                        <td><code>O(n log n)</code></td>
+                        <td>
+                            Algorithme natif de Java qui fait appel à la méthode de la librairie standard <code>Arrays.sort()</code> pour les tableaux dynamiques 
+                            et réalise automatiquement un algorithme le plus adapté au tableau de données.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" id="empirique">
+            <h2>3. Analyse empirique de la complexité temporelle</h2>
+            <p>
+                Les temps d'exécution de chacun des algorithmes constatés ci-dessous ont été enregistrés à l'aide de la méthode <code>System.currentTimeMillis()</code> 
+                de Java dans le programme <code>Tp1.java</code> dont les fichiers d'entrée utilisés pour faire les tests sont situés dans le répertoire <code>./exemplaires</code>.
+            </p>
+
+            <div class="chart">
+                <canvas id="timeChart"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
