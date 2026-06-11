@@ -1,3 +1,5 @@
+// Nom: Ryan Ramaherison Mac Way Kit - Matricule: 2030 6738
+
 import java.util.Arrays;
 
 public class Cargaisons implements Comparable<Cargaisons> {

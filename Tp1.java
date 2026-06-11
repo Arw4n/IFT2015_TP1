@@ -1,3 +1,5 @@
+// Nom: Ryan Ramaherison Mac Way Kit - Matricule: 2030 6738
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -37,8 +39,7 @@ public class Tp1 {
     }
 
     // Tri simple: Insertion Sort (option 1)
-    // COMPLEXITÉ (pire cas): O(n²) - (quadratique) 
-    // COMPLEXITÉ (meilleur cas): O(n) - (linéaire)
+    // COMPLEXITÉ: O(n²) - (quadratique) 
     public static Cargaisons[] insertionSort(Cargaisons[] liste) {
         Cargaisons temp; // O(1) => tableau d'espace temporaire
         int n = liste.length; // O(1) => taille de la liste
@@ -59,7 +60,7 @@ public class Tp1 {
     }
 
     // Tri efficace: Merge Sort (option 2)
-    // COMPLEXITÉ (pire & meilleur cas): O(n log n) - (linéaire logarithmique)
+    // COMPLEXITÉ: O(n log n) - (linéarithmique)
     public static Cargaisons[] mergeSort(Cargaisons[] array, int left, int right) {
         if (left < right) { // O(1) => condition de terminaison de la récursion binaire
             int middle = (left + right) / 2; // O(1) => calcul du pivot du milieu
@@ -164,7 +165,7 @@ public class Tp1 {
 
                 for(int i = 0;i<infos.length-1;i+=2) { // O(n) => s'exécute au max n/2 fois
                     if(cargCount == carg.length) { // si la capacité du tableau est atteinte
-                        carg = Arrays.copyOf(carg, carg.length*2); // O(n) (pire cas)
+                        carg = Arrays.copyOf(carg, carg.length*2); // O(n)
                     }
 
                     infos[i+1] = infos[i+1].replaceAll("[()]",""); // nettoyage de parenthèses des coordonnées
@@ -222,11 +223,11 @@ public class Tp1 {
 
             // Choix de l'algo de tri à exécuter selon l'argument
             if (triChoix == 1) { // Tri simple (Insertion Sort)
-                carg = insertionSort(carg); // COMPLEXITÉ (PIRE CAS): O(n²)
+                carg = insertionSort(carg); // COMPLEXITÉ: O(n²)
             } else if (triChoix == 2) { // Tri efficace (Merge Sort)
-                carg = mergeSort(carg, 0, carg.length - 1); // COMPLEXITÉ (PIRE CAS): O(n log n)
+                carg = mergeSort(carg, 0, carg.length - 1); // COMPLEXITÉ: O(n log n)
             } else { // Tri de la librairie standard de Java (Arrays.sort)
-                Arrays.sort(carg); // COMPLEXITÉ (PIRE CAS): O(n log n)
+                Arrays.sort(carg); // COMPLEXITÉ: O(n log n)
             }
 
             long endTime = System.currentTimeMillis(); // temps système final après le tri (en ms)
