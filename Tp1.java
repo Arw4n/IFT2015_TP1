@@ -277,3 +277,31 @@ public class Tp1 {
         }
     }
 }
+
+class Cargaisons implements Comparable<Cargaisons> {
+    int nbsBoites;
+    double[] coords = new double[2]; 
+    double distance;
+
+    public Cargaisons(int nbsBoites, double[] coords) {
+        this.nbsBoites = nbsBoites;
+        this.coords = coords;
+        this.distance = 0.0; // CORRECTION 3 : Évite l'auto-affectation inutile
+    }
+
+    @Override
+    public int compareTo(Cargaisons c) {
+        if(this.distance != c.distance) {
+            return Double.compare(this.distance, c.distance);
+        }
+        if(this.coords[0] != c.coords[0]) {
+            return Double.compare(this.coords[0], c.coords[0]);
+        }
+        return Double.compare(this.coords[1], c.coords[1]);
+    }
+    
+    @Override
+    public String toString() {
+        return "Cargaisons = " + "\n" + "Boites : " + nbsBoites + "\n" + "Coordonnées du point : " + Arrays.toString(coords) + "\n";
+    }
+}
