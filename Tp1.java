@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Locale;
 
 // Programme de gestion de cargaisons pour un camion de livraison
 public class Tp1 {
@@ -162,6 +163,10 @@ public class Tp1 {
                     continue;
                 }
 
+                line = line.replaceAll("\\(\\s*", "(")
+                           .replaceAll("\\s*\\)", ")")
+                           .replaceAll("\\s*,\\s*", ",");
+
                 String[] infos = line.trim().split("\\s+"); // découpage des info de la ligne courante
 
                 for(int i = 0;i<infos.length-1;i+=2) { // O(n) => s'exécute au max n/2 fois
@@ -235,7 +240,7 @@ public class Tp1 {
             long duration = endTime - startTime; // temps d'exécution du tri (en ms)
             
             // Log d'analyse empirique pour avoir les données temporelles dans le graphique du rapport
-            System.err.println("ANALYSE_EMPIRIQUE => Input: " + args[0] + " | Size = " + cargCount + " | Algo: " + triChoix + " | Time = " + duration + "ms");
+            // System.err.println("ANALYSE_EMPIRIQUE => Input: " + args[0] + " | Size = " + cargCount + " | Algo: " + triChoix + " | Time = " + duration + "ms");
 
             sortie.write("Truck position: ("+positionCamion[0]+","+positionCamion[1]+")");
             sortie.newLine();
@@ -260,7 +265,7 @@ public class Tp1 {
                     String distanceStr = "0";
                     // Formater la distance avec un nombre de décimales fixe
                     if (cargTriee.distance != 0) { // Cas spécial: distance = 0
-                        distanceStr = String.format("%.1f", cargTriee.distance); // 1 décimale pour la distance
+                        distanceStr = String.format(Locale.US,"%.1f", cargTriee.distance); // 1 décimale pour la distance
                     }
                     
                     // Écriture formatée standardisée respectant les espacements dans l'énoncé du devoir
