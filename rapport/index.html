@@ -23,8 +23,8 @@
         <div class="card">
             <h2>1. Auto-évaluation</h2>
             <p>
-                Notre programme <code>Tp1.java</code> fonctionne: <span class="badge">Correctement</span> 
-                contenant 3 algorithmes de tri, à savoir: 
+                Notre programme <code>Tp1.java</code> fonctionne: <span class="badge">Correctement</span>.
+                Il contient 3 algorithmes de tri, à savoir : 
                 <strong>Tri par Insertion</strong> (Option 1), 
                 <strong>Tri par Fusion</strong> (Option 2) et 
                 <strong>Tri par Arrays.sort()</strong> (Option 3)
@@ -54,7 +54,8 @@
                         <td>
                             Algorithme qui contient 2 boucles imbriquées. La boucle externe <code>for</code> s'exécute linéairement <span class="math">n-1</span> fois,
                             proportionnelle à <code>O(n)</code>. Et la boucle interne <code>while</code> qui s'exécute au max <span class="math">i</span> fois,
-                            proportionnelle à <code>O(i)</code>.
+                            proportionnelle à <code>O(i)</code> (où <span class="math">i</span> ne peut pas dépasser n). Puisque ce sont deux boucles imbriquées, les complexités
+                            se multiplient, d'où <code>O(n²)</code>
                         </td>
                     </tr>
                     <tr>
@@ -64,15 +65,22 @@
                             Algorithme de type "Diviser pour régner". Le tableau de données est divisé récursivement en 2 sous-tableaux équilibrées 
                             jusqu'à atteindre des singletons. La profondeur maximale de cette récursion est de l'ordre de <code>log₂ n</code>. 
                             À chaque niveau de cette récursion, la méthode de fusion linéaire <code>merge()</code> combine les sous-tableaux 
-                            triés en un seul tableau trié, proportionnel à <code>O(n)</code>. 
+                            triés en un seul tableau trié, proportionnel à <code>O(n)</code>. Puisque cet algorithme est récursif, les complexités
+                            se multiplient (<code>log₂ n</code> divisions en pire cas multipliées par <code>n</code> étapes de reconstitution du tableau).
+                            D'où une complexité finale de <code>O(n log n)</code>. 
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Tri par Arrays.sort()</strong></td>
-                        <td><code>O(n log n)</code></td>
+                        <td><code>O(n ln(n))</code></td>
                         <td>
                             Algorithme natif de Java qui fait appel à la méthode de la librairie standard <code>Arrays.sort()</code> pour les tableaux dynamiques 
-                            et réalise automatiquement un algorithme le plus adapté au tableau de données.
+                            et réalise automatiquement un algorithme le plus adapté au tableau de données. Puisque les méthodes de tri n'agissent pas sur des tableaux
+                            contenant des types primitifs de Java, <code>Arrays.sort()</code> applique le Timsort, de complexité temporelle <code>O(nln(n))</code> 
+                            en pire cas. Cet algorithme procède en parcourant le tableau à la recherche de cas de suites d'au moins deux éléments consécutifs croissants puis, 
+                            lorsque ces éléments ne sont pas alignés, effectuer un tri par insertion pour ordonner plusieurs éléments consécutifs. Une pile est tenue pour 
+                            garder en mémoire de telles sections du tableau, que l'algorithme utilise pour trier des sections de manière successive. Ce tri se fait de manière similaire 
+                            au merge sort (l'algorithme trie les sections par paires jusqu'à ce que l'entièreté du tableau soit trié).
                         </td>
                     </tr>
                 </tbody>
@@ -83,7 +91,9 @@
             <h2>3. Analyse empirique de la complexité temporelle</h2>
             <p>
                 Les temps d'exécution de chacun des algorithmes constatés ci-dessous ont été enregistrés à l'aide de la méthode <code>System.currentTimeMillis()</code> 
-                de Java dans le programme <code>Tp1.java</code> dont les fichiers d'entrée utilisés pour faire les tests sont situés dans le répertoire <code>./exemplaires</code>.
+                de Java dans le programme <code>Tp1.java</code> dont les fichiers d'entrée utilisés pour faire les tests sont situés dans le répertoire <code>./exemplaires</code>. 
+                Comme nous pourrions nous en douter, l'algorithme simple est plus lent que les deux autres à cause d'un plus grand nombre d'étapes à franchir lors de son exécution 
+                (bien que cette différence ne se fasse pas ressentir lorsque le nombre de points de cargaisons est petit).
             </p>
 
             <div class="chart">
