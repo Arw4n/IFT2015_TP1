@@ -55,7 +55,8 @@
                             Algorithme qui contient 2 boucles imbriquées. La boucle externe <code>for</code> s'exécute linéairement <span class="math">n-1</span> fois,
                             proportionnelle à <code>O(n)</code>. Et la boucle interne <code>while</code> qui s'exécute au max <span class="math">i</span> fois,
                             proportionnelle à <code>O(i)</code> (où <span class="math">i</span> ne peut pas dépasser n). Puisque ce sont deux boucles imbriquées, les complexités
-                            se multiplient, d'où <code>O(n²)</code>
+                            se multiplient, d'où <code>O(n²)</code> en pire cas et en cas moyen (cette méthode est, en meilleur cas, <code>O(n²)</code> quand le tableau est déjà trié).
+                            Ce tri possède une complexité spatiale <code>O(1)</code> car elle ne crée aucune structure de donnée pour trier le tableau.
                         </td>
                     </tr>
                     <tr>
@@ -67,7 +68,8 @@
                             À chaque niveau de cette récursion, la méthode de fusion linéaire <code>merge()</code> combine les sous-tableaux 
                             triés en un seul tableau trié, proportionnel à <code>O(n)</code>. Puisque cet algorithme est récursif, les complexités
                             se multiplient (<code>log₂ n</code> divisions en pire cas multipliées par <code>n</code> étapes de reconstitution du tableau).
-                            D'où une complexité finale de <code>O(n log n)</code>. 
+                            D'où une complexité temporelle finale de <code>O(n log n)</code> en pire, moyen et meilleur cas. Sa complexité spatiale est 
+                            <code>O(n)</code> à cause de la création de la variable <code>temp</code>.
                         </td>
                     </tr>
                     <tr>
