@@ -240,7 +240,7 @@ public class Tp1 {
             long duration = endTime - startTime; // temps d'exécution du tri (en ms)
             
             // Log d'analyse empirique pour avoir les données temporelles dans le graphique du rapport
-            // System.err.println("ANALYSE_EMPIRIQUE => Input: " + args[0] + " | Size = " + cargCount + " | Algo: " + triChoix + " | Time = " + duration + "ms");
+            System.err.println("ANALYSE_EMPIRIQUE => Input: " + args[0] + " | Size = " + cargCount + " | Algo: " + triChoix + " | Time = " + duration + "ms");
 
             sortie.write("Truck position: ("+positionCamion[0]+","+positionCamion[1]+")");
             sortie.newLine();
@@ -268,8 +268,12 @@ public class Tp1 {
                         distanceStr = String.format(Locale.US,"%.1f", cargTriee.distance); // 1 décimale pour la distance
                     }
                     
+                    String col1 = "Distance:" + distanceStr;
+                    String col2 = "Number of boxes:" + cargTriee.nbsBoites;
+                    String col3 = "Position:(" + cargTriee.coords[0] + "," + cargTriee.coords[1] + ")";
+                    String ligneFormatee = String.format(Locale.US, "%-25s %-25s %s", col1, col2, col3);
                     // Écriture formatée standardisée respectant les espacements dans l'énoncé du devoir
-                    sortie.write("Distance:" + distanceStr + "\t\tNumber of boxes:" + cargTriee.nbsBoites + "\t\tPosition:(" + cargTriee.coords[0] + "," + cargTriee.coords[1] + ")");
+                    sortie.write(ligneFormatee);
                     sortie.newLine();
                 }
             }
@@ -283,3 +287,4 @@ public class Tp1 {
         }
     }
 }
+
