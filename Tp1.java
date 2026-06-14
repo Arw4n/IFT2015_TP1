@@ -140,7 +140,6 @@ public class Tp1 {
             String line;
             String[] config = Firstline.trim().split("\\s+"); // extraire les données de la ligne d'en-tête
 
-            double distanceParcourue = 0;
             double[] positionCamion = new double[2];
             int boitesDemande = Integer.parseInt(config[0]);
             int capaciteCamion;
@@ -207,18 +206,6 @@ public class Tp1 {
                 }
             }
 
-            int totalBoitesDisponibles = 0;
-            
-            for (int i = 0; i < carg.length; i++) { // O(n) => s'exécute exactement n fois pour calculer le stock total disponible
-                totalBoitesDisponibles += carg[i].nbsBoites; // somme cumulative des boîtes disponibles dans les bâtiments
-            }
-            if (boitesDemande < totalBoitesDisponibles) { // si la demande de boites < à l'offre disponible
-                boitesDemande = totalBoitesDisponibles; // collecter toutes les boîtes disponibles
-            }
-            if (boitesDemande > capaciteCamion) { // si la demande de boîtes dépasse la capacité du camion
-                boitesDemande = capaciteCamion; // ne jamais déborder le camion
-            }
-
             // Calculer toutes les distances des bâtiments par rapport à la position fixe initiale du camion
             for (int i = 0; i < carg.length; i++) { // O(n) => s'exécute exactement n fois pour calculer la distance
                 carg[i].distance = DHaversine(positionCamion, carg[i].coords); // O(1) => distance Haversine
@@ -271,9 +258,8 @@ public class Tp1 {
                     String col1 = "Distance:" + distanceStr;
                     String col2 = "Number of boxes:" + cargTriee.nbsBoites;
                     String col3 = "Position:(" + cargTriee.coords[0] + "," + cargTriee.coords[1] + ")";
-                    String ligneFormatee = String.format(Locale.US, "%-25s %-25s %s", col1, col2, col3);
                     // Écriture formatée standardisée respectant les espacements dans l'énoncé du devoir
-                    sortie.write(ligneFormatee);
+                    sortie.write(col1+ "\t\t" + col2 + "\t\t" + col3);
                     sortie.newLine();
                 }
             }
@@ -287,4 +273,3 @@ public class Tp1 {
         }
     }
 }
-
